@@ -17,6 +17,7 @@ Para rodar o backend com dados mockados, siga os passos abaixo:
 2. **Inicie o JSON Server** 
    ```
    json-server --watch db.json --port 3200
+3. **Dados mockados em arquivo db.json** 
    
 ## Servidor de Desenvolvimento
 
