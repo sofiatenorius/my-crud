@@ -1,57 +1,43 @@
-// import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
-// import { ExtratoComponent } from './extrato.component';
-// import { ContaServiceService } from '../conta-service.service';
-// import { of, throwError } from 'rxjs';
-// import { FormsModule } from '@angular/forms';
-// import { HttpClientModule } from '@angular/common/http';
-// import { CommonModule } from '@angular/common';
-// import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ExtratoComponent } from './extrato.component';
+import { ContaServiceService } from '../services/conta-service.service';
+import { of, throwError } from 'rxjs';
 
-// class MockContaService {
-//   consultarExtrato(contaId: any) {
-//     return of([]); // Retorna um extrato vazio como resposta simulada
-//   }
-// }
+describe('ExtratoComponent', () => {
+  let component: ExtratoComponent;
+  let fixture: ComponentFixture<ExtratoComponent>;
+  let contaService: jasmine.SpyObj<ContaServiceService>;
 
-// describe('ExtratoComponent', () => {
-//   let component: ExtratoComponent;
-//   let fixture: ComponentFixture<ExtratoComponent>;
-//   let contaService: ContaServiceService;
+  beforeEach(async () => {
+    const spy = jasmine.createSpyObj('ContaServiceService', ['consultarExtrato']);
 
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       imports: [HttpClientModule, FormsModule, CommonModule],
-//       declarations: [ExtratoComponent],
-//       providers: [
-//         { provide: ContaServiceService, useClass: MockContaService }
-//       ],
-//       schemas: [NO_ERRORS_SCHEMA] // Ignora erros de template
-//     }).compileComponents();
+    await TestBed.configureTestingModule({
+      declarations: [ ExtratoComponent ],
+      providers: [
+        { provide: ContaServiceService, useValue: spy }
+      ]
+    })
+    .compileComponents();
 
-//     fixture = TestBed.createComponent(ExtratoComponent);
-//     component = fixture.componentInstance;
-//     contaService = TestBed.inject(ContaServiceService);
-//   });
+    fixture = TestBed.createComponent(ExtratoComponent);
+    component = fixture.componentInstance;
+    contaService = TestBed.inject(ContaServiceService) as jasmine.SpyObj<ContaServiceService>;
+    component.contaId = 1; // Defina um ID de conta para os testes
+  });
 
-//   beforeEach(() => {
-//     fixture.detectChanges();
-//   });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
+  it('should call consultarExtrato and set extrato on success', () => {
+    const mockExtrato = [{ id: 1, descricao: 'Teste', valor: 100 }];
+    contaService.consultarExtrato.and.returnValue(of(mockExtrato));
 
+    component.consultarExtrato();
 
-//   it('should handle error when consulting extrato', () => {
-//     const errorMessage = 'Erro ao consultar extrato';
-//     spyOn(contaService, 'consultarExtrato').and.returnValue(throwError({ message: errorMessage }));
+    expect(contaService.consultarExtrato).toHaveBeenCalledWith(component.contaId);
+    expect(component.extrato).toEqual(mockExtrato);
+    expect(component.errorMessage).toBe('');
+  });
 
-//     component.contaId = 1; // Define um ID de conta fictício
-
-//     // Simula a chamada do método
-//     component.consultarExtrato();
-
-//     expect(component.errorMessage).toBe(''); // Verifica se a mensagem de erro foi resetada
-//     expect(contaService.consultarExtrato).toHaveBeenCalledWith(1); // Verifica se o serviço foi chamado com o ID correto
-//   });
-// });
+});

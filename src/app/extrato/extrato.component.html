@@ -1,17 +1,26 @@
 <div class="container">
   <h2>Consulta de Extrato</h2>
-  <form (ngSubmit)="consultarExtrato()">
+  <form (ngSubmit)="consultarExtrato()" #form="ngForm">
     <div class="form-group">
       <label for="contaId">ID da Conta:</label>
-      <input type="text" id="contaId" [(ngModel)]="contaId" name="contaId" required>
+      <input
+        type="text"
+        id="contaId"
+        [(ngModel)]="contaId"
+        name="contaId"
+        required
+        class="form-control"
+        placeholder="Digite o ID da conta">
     </div>
-    <button type="submit">Consultar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Consultar</button>
   </form>
-  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
-    <h3>Extrato</h3>
-    <ul>
-      <li *ngFor="let item in extrato">
-        {{ item.data }} - {{ item.descricao }}: R$ {{ item.valor }}
-      </li>
-    </ul>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+
+  <h3 class="mt-4">Extrato</h3>
+  <ul class="list-group">
+    <li *ngFor="let item of extrato" class="list-group-item">
+      {{ item.data | date:'dd/MM/yyyy' }} - {{ item.descricao }}: R$ {{ item.valor | number:'1.2-2' }}
+    </li>
+  </ul>
 </div>
