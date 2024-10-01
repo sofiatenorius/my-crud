@@ -1,0 +1,92 @@
+/* Reset de estilos básicos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding-bottom: 10px;
+}
+
+/* Estilo para os containers dos componentes */
+.container {
+  padding-top: 10pxS;
+  max-width: 600px;
+  margin: 20px auto;
+  margin-top: 10px;
+  padding: 200px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo dos títulos */
+h2 {
+  text-align: center;
+  color: #c0392b; /* Cor vermelha */
+}
+
+/* Estilo dos formulários */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+/* Estilo dos botões */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #c0392b; /* Cor vermelha */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #a52c27; /* Cor vermelha escura */
+}
+
+/* Estilo para mensagens de sucesso e erro */
+.success {
+  color: #27ae60; /* Verde */
+  margin-top: 10px;
+}
+
+.error {
+  color: #e74c3c; /* Vermelho */
+  margin-top: 10px;
+}
+
+/* Listagem do extrato */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}

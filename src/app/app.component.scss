@@ -1,0 +1,36 @@
+.header {
+  background-color: red; /* Cor de fundo vermelha */
+  color: white; /* Cor do texto branca */
+  text-align: center; /* Centraliza o conteúdo */
+  padding: 1rem 0; /* Espaçamento superior e inferior */
+}
+
+h1 {
+  margin: 0; /* Remove margem do título */
+}
+
+nav {
+  margin-top: 1rem; /* Espaçamento entre o título e o menu */
+}
+
+nav ul {
+  list-style-type: none; /* Remove marcadores da lista */
+  margin: 0; /* Remove margem */
+  padding: 0; /* Remove preenchimento */
+  display: flex; /* Utiliza flexbox para layout */
+  justify-content: center; /* Centraliza itens do menu */
+}
+
+nav li {
+  margin: 0 20px; /* Espaçamento lateral entre os itens */
+}
+
+nav a {
+  color: white; /* Cor do texto dos links */
+  text-decoration: none; /* Remove sublinhado */
+  font-weight: bold; /* Texto em negrito */
+}
+
+nav a:hover {
+  text-decoration: underline; /* Sublinha ao passar o mouse */
+}

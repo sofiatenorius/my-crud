@@ -1,0 +1,93 @@
+{
+  "contas": [
+    {
+      "id": 1,
+      "numeroConta": "123456",
+      "nomeTitular": "João Silva",
+      "documento": "12345678901",
+      "endereco": "Rua A, 123",
+      "saldo": 1000
+    },
+    {
+      "id": 2,
+      "numeroConta": "654321",
+      "nomeTitular": "Maria Oliveira",
+      "documento": "10987654321",
+      "endereco": "Rua B, 456",
+      "saldo": 500
+    },
+    {
+      "id": "2238",
+      "numeroConta": "000000",
+      "nomeTitular": "SOFIA",
+      "documento": "77139280481",
+      "endereco": "Rua jornalista pedro gondim"
+    },
+    {
+      "id": "c879",
+      "numeroConta": "000000",
+      "nomeTitular": "SOFIA",
+      "documento": "77139280481",
+      "endereco": "Rua jornalista pedro gondim"
+    },
+    {
+      "id": "fd60",
+      "numeroConta": "1234",
+      "nomeTitular": "SOFIA",
+      "documento": "77139280481",
+      "endereco": "Rua Alfredo Porto"
+    }
+  ],
+  "transferencias": [
+    {
+      "id": "4740",
+      "contaOrigem": "0000",
+      "contaDestino": "2323",
+      "valor": 20000000000
+    }
+  ],
+  "depositos": [
+    {
+      "id": "b2c6",
+      "contaId": "00102923",
+      "valor": 390000
+    }
+  ],
+  "extrato": [
+    {
+      "id": 1,
+      "data": "2023-09-01",
+      "descricao": "Salário",
+      "valor": 5000.00,
+      "tipo": "entrada"
+    },
+    {
+      "id": 2,
+      "data": "2023-09-03",
+      "descricao": "Aluguel",
+      "valor": -1500.00,
+      "tipo": "saída"
+    },
+    {
+      "id": 3,
+      "data": "2023-09-05",
+      "descricao": "Conta de luz",
+      "valor": -200.00,
+      "tipo": "saída"
+    },
+    {
+      "id": 4,
+      "data": "2023-09-10",
+      "descricao": "Venda de produtos",
+      "valor": 1200.00,
+      "tipo": "entrada"
+    },
+    {
+      "id": 5,
+      "data": "2023-09-15",
+      "descricao": "Jantar fora",
+      "valor": -100.00,
+      "tipo": "saída"
+    }
+  ]
+}

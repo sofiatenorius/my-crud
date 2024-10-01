@@ -1,0 +1,16 @@
+<div class="deposito-container">
+  <h2>Depósito</h2>
+  <form (ngSubmit)="onDepositar()">
+    <div class="form-group">
+      <label for="contaId">Conta:</label>
+      <input id="contaId" [(ngModel)]="contaId" name="contaId" required />
+    </div>
+    <div class="form-group">
+      <label for="valor">Valor:</label>
+      <input id="valor" [(ngModel)]="valor" name="valor" required type="number" />
+    </div>
+    <button type="submit">Depositar</button>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Consulta de Extrato</h2>
+  <form (ngSubmit)="consultarExtrato()">
+    <div class="form-group">
+      <label for="contaId">ID da Conta:</label>
+      <input type="text" id="contaId" [(ngModel)]="contaId" name="contaId" required>
+    </div>
+    <button type="submit">Consultar</button>
+  </form>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+    <h3>Extrato</h3>
+    <ul>
+      <li *ngFor="let item in extrato">
+        {{ item.data }} - {{ item.descricao }}: R$ {{ item.valor }}
+      </li>
+    </ul>
+</div>
